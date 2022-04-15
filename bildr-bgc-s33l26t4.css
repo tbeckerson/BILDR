@@ -1,0 +1,37 @@
+.bgc-red-t4, .bgca-red-t4 {background-color: hsla(0,33%,26%,0.4); color:#e0e0e0;}
+.bgch-red-t4:hover, .bgca-red-t4:hover {background-color: hsla(0,33%,36%,0.4); color:#f0f0f0;}
+.bgc-org-t4, .bgca-org-t4 {background-color: hsla(30,33%,26%,0.4); color:#e0e0e0;}
+.bgch-org-t4:hover, .bgca-org-t4:hover {background-color: hsla(30,33%,36%,0.4); color:#f0f0f0;}
+.bgc-yel-t4, .bgca-yel-t4 {background-color: hsla(60,33%,26%,0.4); color:#e0e0e0;}
+.bgch-yel-t4:hover, .bgca-yel-t4:hover {background-color: hsla(60,33%,36%,0.4); color:#f0f0f0;}
+.bgc-cha-t4, .bgca-cha-t4 {background-color: hsla(90,33%,26%,0.4); color:#e0e0e0;}
+.bgch-cha-t4:hover, .bgca-cha-t4:hover {background-color: hsla(90,33%,36%,0.4); color:#f0f0f0;}
+.bgc-grn-t4, .bgca-grn-t4 {background-color: hsla(120,33%,26%,0.4); color:#e0e0e0;}
+.bgch-grn-t4:hover, .bgca-grn-t4:hover {background-color: hsla(120,33%,36%,0.4); color:#f0f0f0;}
+.bgc-spr-t4, .bgca-spr-t4 {background-color: hsla(150,33%,26%,0.4); color:#e0e0e0;}
+.bgch-spr-t4:hover, .bgca-spr-t4:hover {background-color: hsla(150,33%,36%,0.4); color:#f0f0f0;}
+.bgc-cyn-t4, .bgca-cyn-t4 {background-color: hsla(180,33%,26%,0.4); color:#e0e0e0;}
+.bgch-cyn-t4:hover, .bgca-cyn-t4:hover {background-color: hsla(180,33%,36%,0.4); color:#f0f0f0;}
+.bgc-azu-t4, .bgca-azu-t4 {background-color: hsla(210,33%,26%,0.4); color:#e0e0e0;}
+.bgch-azu-t4:hover, .bgca-azu-t4:hover {background-color: hsla(210,33%,36%,0.4); color:#f0f0f0;}
+.bgc-blu-t4, .bgca-blu-t4 {background-color: hsla(240,33%,26%,0.4); color:#e0e0e0;}
+.bgch-blu-t4:hover, .bgca-blu-t4:hover {background-color: hsla(240,33%,36%,0.4); color:#f0f0f0;}
+.bgc-vio-t4, .bgca-vio-t4 {background-color: hsla(270,33%,26%,0.4); color:#e0e0e0;}
+.bgch-vio-t4:hover, .bgca-vio-t4:hover {background-color: hsla(270,33%,36%,0.4); color:#f0f0f0;}
+.bgc-mag-t4, .bgca-mag-t4 {background-color: hsla(300,33%,26%,0.4); color:#e0e0e0;}
+.bgch-mag-t4:hover, .bgca-mag-t4:hover {background-color: hsla(300,33%,36%,0.4); color:#f0f0f0;}
+.bgc-ros-t4, .bgca-ros-t4 {background-color: hsla(330,33%,26%,0.4); color:#e0e0e0;}
+.bgch-ros-t4:hover, .bgca-ros-t4:hover {background-color: hsla(330,33%,36%,0.4); color:#f0f0f0;}
+
+
+.bgc-whi-t4, .bgca-whi-t4 {background-color: hsla(0,0%,100%,0.4); color: #101010;}
+.bgc-gry90-t4, .bgca-gry90-t4 {background-color: hsla(0,0%,90%,0.4); color:#101010;}
+.bgc-gry80-t4, .bgca-gry80-t4 {background-color: hsla(0,0%,80%,0.4); color:#101010;}
+.bgc-gry70-t4, .bgca-gry70-t4 {background-color: hsla(0,0%,78%,0.4); color:#101010;}
+.bgc-gry60-t4, .bgca-gry60-t4 {background-color: hsla(0,0%,60%,0.4); color:#101010;}
+.bgc-gry50-t4, .bgca-gry50-t4 {background-color: hsla(0,0%,50%,0.4); color:#101010;}
+.bgc-gry40-t4, .bgca-gry40-t4 {background-color: hsla(0,0%,40%,0.4); color:#f0f0f0;}
+.bgc-gry30-t4, .bgca-gry30-t4 {background-color: hsla(0,0%,30%,0.4); color:#f0f0f0;}
+.bgc-gry20-t4, .bgca-gry20-t4 {background-color: hsla(0,0%,20%,0.4); color:#f0f0f0;}
+.bgc-gry10-t4, .bgca-gry10-t4 {background-color: hsla(0,0%,10%,0.4); color:#f0f0f0;}
+.bgc-blk-t4, .bgca-blk-t4 {background-color: hsla(0,0%,0,0.4); color:#f0f0f0;}
