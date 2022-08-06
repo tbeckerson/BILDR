@@ -1,19 +1,16 @@
 :root {
  --fontsize:clamp(14px,calc(14px + 1vw),18px);
  }
-html, * {
-  scroll-behavior:smooth; 
-  height: 100%;
-  overflow: hidden;
+html {
   box-sizing: border-box;
-  padding:0;
-  margin:0;
+  overflow:hidden;
   }
 body {
+  scroll-behavior:smooth; 
   font-size: var(--fontsize);
   margin: 0;
   padding: 0;
-  min-height: 100vh;
+  height: 100vh;
   overflow-y: scroll;
   overflow-x: hidden;
   perspective: 1px;
@@ -38,34 +35,10 @@ p {
 
 /* animations */
 
-.ani-repeat-1 {
-  animation-iteration-count: 1;
-  }
-.ani-repeat-2 {
-  animation-iteration-count: 2;
-  }
-.ani-repeat-3 {
-  animation-iteration-count: 3;
-  }
-.ani-repeat-4 {
-  animation-iteration-count: 4;
-  }
-.ani-repeat-5 {
-  animation-iteration-count: 5;
-  }
-.ani-repeat-inf {
-  animation-iteration-count: infinite;
-  }
-.ani-dir-rev {
-  animation-direction: reverse ;
-  }
-.ani-dir-alt {
-  animation-direction: alternate;
-  }
-.ani-dir-alt-rev {
-  animation-direction: alternate-reverse ;
-  }
 
+/* animations */
+
+/*wait to start */
 .ani-delay-05s {
   animation-delay: 0.5s;
 }
@@ -97,13 +70,14 @@ p {
   animation-delay: 5s;
 }
 
+/* if there's a delay starting the animation, does it begin on the first frame, or the last */
 .ani-forwards {
   animation-fill-mode: forwards;
 }
 .ani-backwards {
   animation-fill-mode: backwards;
 }
-
+/* how long the animation lasts */
 .ani-05s {
   animation-duration: 0.5s;
 }
@@ -136,6 +110,22 @@ p {
 }
 
 
+/* vary the speed pattern of the animations */
+
+.ani-ease-in {
+  animation-timing-function: ease-in;
+}
+.ani-ease-out {
+  animation-timing-function: ease-out;
+}
+.ani-ease-in-out {
+  animation-timing-function: ease-in-out;
+}
+.ani-linear {
+  animation-timing-function: linear;
+}
+
+/* different animations - their purpose should be obvious from their names */
 .ani-fade-in {
 animation-name: fade-in;
 }
@@ -151,6 +141,15 @@ animation-name: fade-in-top;
 @keyframes fade-in-top {
     from
     {opacity:0; transform: translate3D(0,-15vh,0);}
+    to
+    {opacity:1; transform: translate3D(0,0vh,0);}
+}
+.ani-fade-in-bottom {
+animation-name: fade-in-bottom;
+}
+@keyframes fade-in-bottom {
+    from
+    {opacity:0; transform: translate3D(0,15vh,0);}
     to
     {opacity:1; transform: translate3D(0,0vh,0);}
 }
@@ -182,55 +181,92 @@ animation-name: fade-in-right-wide;
     {opacity:1; transform: translate3D(0vh,0,0);}
 }
 
+
+}
+.ani-fade-in-left {
+animation-name: fade-in-left;
+}
+@keyframes fade-in-left {
+    from
+    {opacity:0; transform: translate3D(-15vh,0,0);}
+    to
+    {opacity:1; transform: translate3D(0vh,0,0);}
+}
+.ani-fade-in-left-wide {
+animation-name: fade-in-left-wide;
+}
+@keyframes fade-in-left-wide {
+    from
+    {opacity:0; transform: translate3D(-30vh,0,0);}
+    to
+    {opacity:1; transform: translate3D(0vh,0,0);}
+}
+
 /* parallax - use with caution */
+.plx {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  transform-style: preserve-3d;
+  }
 .plx-fore-1,
 .plx-fore-2,
 .plx-fore-3,
+.plx-fore-4,
 .plx-center,
 .plx-back-1,
 .plx-back-2,
-.plx-back-3 {
-  position: relative;
-  min-height: 1vh;
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-}
+.plx-back-3,
+.plx-back-4
+ {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  content: "";
+  }
 
 .plx-fore-1  {
-  transform: translateZ(0.2px) scale(0.8);
+  transform: translate3D(0,0,0.2px) scale(0.8);
 }
-.plx-fore-2  {
-  transform: translateZ(0.4px) scale(0.6);
+.plx-fore-2   {
+  transform: translate3D(0,0,0.4px) scale(0.6);
 }
-.plx-fore-3  {
-  transform: translateZ(0.6px) scale(0.4);
+.plx-fore-3   {
+  transform: translate3D(0,0,0.6px) scale(0.4);
 }
-.plx-center {
-  transform: translateZ(0px) scale(1);
+.plx-fore-4   {
+  transform: translate3D(0,0,0.8px) scale(0.2);
+}
+.plx-center  {
+  transform: translate3D(0,0,0px) scale(1);
 }
   
-.plx-back-1  {
-  transform: translateZ(-0.5px) scale(1.6);
+.plx-back-1   {
+  transform: translate3D(0,0,-0.5px) scale(1.6);
 }
 .plx-back-2  {
-  transform: translateZ(-1px) scale(2.1);
+  transform: translate3D(0,0,-1px) scale(2.1);
 }
-.plx-back-3 {
-  transform: translateZ(-1.5px) scale(3.6);
+.plx-back-3  {
+  transform: translate3D(0,0,-1.5px) scale(3.6);
 }
+.plx-back-4  {
+  transform: translate3D(0,0,-2px) scale(4.1);
+}
+
 
 .z-0 {z-index:-1}
 .z-1 {z-index:1;}
-.z-1 {z-index:2;}
-.z-1 {z-index:3;}
-.z-1 {z-index:4;}
-.z-1 {z-index:5;}
-.z-1 {z-index:6;}
-.z-1 {z-index:7;}
-.z-1 {z-index:8;}
-.z-1 {z-index:9;}
-.z-1 {z-index:10;}
+.z-3 {z-index:2;}
+.z-3 {z-index:3;}
+.z-4 {z-index:4;}
+.z-5 {z-index:5;}
+.z-6 {z-index:6;}
+.z-7 {z-index:7;}
+.z-8 {z-index:8;}
+.z-9 {z-index:9;}
 .z-10 {z-index:10;}
 .z-20 {z-index:20;}
 .z-30 {z-index:30;}
@@ -265,7 +301,7 @@ animation-name: fade-in-right-wide;
 .t-7 {top: 7vh;}
 .t-8 {top: 8vh;}
 .t-9 {top: 9vh;}
-.t-10, .t-tenth {top:10vh;}
+.t-10, .t-1tenth {top:10vh;}
 .t-20 {top: 20vh;}
 .t-25, .t-1quarter {top:25vh;}
 .t-30 {top: 30vh;}
@@ -291,7 +327,7 @@ animation-name: fade-in-right-wide;
 .b-7 {bottom: 7vh;}
 .b-8 {bottom: 8vh;}
 .b-9 {bottom: 9vh;}
-.b-10, .b-tenth {bottom:10vh;}
+.b-10, .b-1tenth {bottom:10vh;}
 .b-20 {bottom: 20vh;}
 .b-25, .b-1quarter {bottom:25vh;}
 .b-30 {bottom: 30vh;}
@@ -317,7 +353,7 @@ animation-name: fade-in-right-wide;
 .l-7 {left: 7%;}
 .l-8 {left: 8%;}
 .l-9 {left: 9%;}
-.l-10, .l-tenth {left:10%;}
+.l-10, .l-1tenth {left:10%;}
 .l-20 {left: 20%;}
 .l-25, .l-1quarter {left:25%;}
 .l-30 {left: 30%;}
@@ -343,7 +379,7 @@ animation-name: fade-in-right-wide;
 .r-7 {right: 7%;}
 .r-8 {right: 8%;}
 .r-9 {right: 9%;}
-.r-10, .r-tenth {right:10%;}
+.r-10, .r-1tenth {right:10%;}
 .r-20 {right: 20%;}
 .r-25, .r-1quarter {right:25%;}
 .r-30 {right: 30%;}
@@ -368,7 +404,7 @@ animation-name: fade-in-right-wide;
 .w-7 {width: 7%;}
 .w-8 {width: 8%;}
 .w-9 {width: 9%;}
-.w-10, .w-tenth {width:10%;}
+.w-10, .w-1tenth {width:10%;}
 .w-20 {width: 20%;}
 .w-25, .w-1quarter {width:25%;}
 .w-30 {width: 30%;}
@@ -384,7 +420,7 @@ animation-name: fade-in-right-wide;
 .w-100, .w-full {width:100%;}
 .w-auto {width: auto;}
 
-.wmn-10, .wmn-tenth {min-width:10%;}
+.wmn-10, .wmn-1tenth {min-width:10%;}
 .wmn-20 {min-width: 20%;}
 .wmn-25, .wmn-1quarter {min-width:25%;}
 .wmn-30 {min-width: 30%;}
@@ -399,7 +435,7 @@ animation-name: fade-in-right-wide;
 .wmn-90, .wmn-9tenth {min-width: 90%;}
 .wmn-100, .wmn-full {min-width:100%;}
 
-.wmx-10, .wmx-tenth {max-width:10%;}
+.wmx-10, .wmx-1tenth {max-width:10%;}
 .wmx-20 {max-width: 20%;}
 .wmx-25, .wmx-1quarter {max-width:25%;}
 .wmx-30 {max-width: 30%;}
@@ -424,7 +460,7 @@ animation-name: fade-in-right-wide;
 .h-7 {height: 7vh;}
 .h-8 {height: 8vh;}
 .h-9 {height: 9vh;}
-.h-10, .h-tenth {height:10vh;}
+.h-10, .h-1tenth {height:10vh;}
 .h-20 {height: 20vh;}
 .h-25, .h-1quarter {height:25vh;}
 .h-30 {height: 30vh;}
@@ -438,90 +474,6 @@ animation-name: fade-in-right-wide;
 .h-80 {height: 80vh;}
 .h-90, .h-9tenth {height: 90vh;}
 .h-100, .h-full {height:100vh;}
-
-.h-110, .h-overtenth {height:110vh;}
-.h-120 {height: 120vh;}
-.h-125, .h-over1quarter {height:125vh;}
-.h-130 {height: 130vh;}
-.h-133, .h-over1third {height:133.33vh;}
-.h-140 {height: 140vh;}
-.h-150, .h-overhalf {height:150vh;}
-.h-160 {height: 160vh;}
-.h-166, .h-over2third {height:166.66vh;}
-.h-170 {height: 170vh;}
-.h-175, .h-over3quarter {height:175vh;}
-.h-180 {height: 180vh;}
-.h-190, .h-over9tenth {height: 190vh;}
-.h-200, .h-overfull {height:200vh;}
-
-.ph-110, .ph-overtenth {height:110vh;}
-.ph-120 {height: 120vh;}
-.ph-125, .ph-over1quarter {height:125vh;}
-.ph-130 {height: 130vh;}
-.ph-133, .ph-over1third {height:133.33vh;}
-.ph-140 {height: 140vh;}
-.ph-150, .ph-overhalf {height:150vh;}
-.ph-160 {height: 160vh;}
-.ph-166, .ph-over2third {height:166.66vh;}
-.ph-170 {height: 170vh;}
-.ph-175, .ph-over3quarter {height:175vh;}
-.ph-180 {height: 180vh;}
-.ph-190, .ph-over9tenth {height: 190vh;}
-.ph-200, .ph-overfull {height:200vh;}
-
-.ph-1 {height: 1%;}
-.ph-2 {height: 2%;}
-.ph-3 {height: 3%;}
-.ph-4 {height: 4%;}
-.ph-5 {height: 5%;}
-.ph-6 {height: 6%;}
-.ph-7 {height: 7%;}
-.ph-8 {height: 8%;}
-.ph-9 {height: 9%;}
-.ph-10, .ph-tenth {height:10%;}
-.ph-20 {height: 20%;}
-.ph-25, .ph-1quarter {height:25%;}
-.ph-30 {height: 30%;}
-.ph-33, .ph-1third {height:33.33%;}
-.ph-40 {height: 40%;}
-.ph-50, .ph-half {height:50%;}
-.ph-60 {height: 60%;}
-.ph-66, .ph-2third {height:66.66%;}
-.ph-70 {height: 70%;}
-.ph-75, .ph-3quarter {height:75%;}
-.ph-80 {height: 80%;}
-.ph-90, .ph-9tenth {height: 90%;}
-.ph-100, .ph-full {height:100%;}
-.ph-auto {height: auto;}
-
-.phmn-10, .phmn-tenth {min-height:10%;}
-.phmn-20 {min-height: 20%;}
-.phmn-25, .phmn-1quarter {min-height:25%;}
-.phmn-30 {min-height: 30%;}
-.phmn-33, .phmn-1third {min-height:33.33%;}
-.phmn-40 {min-height: 40%;}
-.phmn-50, .phmn-half {min-height:50%;}
-.phmn-60 {min-height: 60%;}
-.phmn-66, .phmn-2third {min-height:66.66%;}
-.phmn-70 {min-height: 70%;}
-.phmn-75, .phmn-3quarter {min-height:75%;}
-.phmn-80 {min-height: 80%;}
-.phmn-90, .phmn-9tenth {min-height: 90%;}
-.phmn-100, .phmn-full {min-height:100%;}
-.phmx-10, .phmx-tenth {min-height:10%;}
-.phmx-20 {min-height: 20%;}
-.phmx-25, .phmx-1quarter {min-height:25%;}
-.phmx-30 {min-height: 30%;}
-.phmx-33, .phmx-1third {min-height:33.33%;}
-.phmx-40 {min-height: 40%;}
-.phmx-50, .phmx-half {min-height:50%;}
-.phmx-60 {min-height: 60%;}
-.phmx-66, .phmx-2third {min-height:66.66%;}
-.phmx-70 {min-height: 70%;}
-.phmx-75, .phmx-3quarter {min-height:75%;}
-.phmx-80 {min-height: 80%;}
-.phmx-90, .phmx-9tenth {min-height: 90%;}
-.phmx-100, .phmx-full {min-height:100%;}
 
 .hmn-10, .hmn-tenth {min-height:10vh;}
 .hmn-20 {min-height: 20vh;}
@@ -551,6 +503,120 @@ animation-name: fade-in-right-wide;
 .hmx-80 {max-height: 80vh;}
 .hmx-90, .hmx-9tenth {max-height: 90vh;}
 .hmx-100, .hmx-full {max-height:100vh;}
+
+.h-110, .h-over1tenth {height:110vh;}
+.h-120 {height: 120vh;}
+.h-125, .h-over1quarter {height:125vh;}
+.h-130 {height: 130vh;}
+.h-133, .h-over1third {height:133.33vh;}
+.h-140 {height: 140vh;}
+.h-150, .h-overhalf {height:150vh;}
+.h-160 {height: 160vh;}
+.h-166, .h-over2third {height:166.66vh;}
+.h-170 {height: 170vh;}
+.h-175, .h-over3quarter {height:175vh;}
+.h-180 {height: 180vh;}
+.h-190, .h-over9tenth {height: 190vh;}
+.h-200, .h-overfull {height:200vh;}
+
+.hmn-110, .hmn-over1tenth {min-height:110vh;}
+.hmn-120 {min-height: 120vh;}
+.hmn-125, .hmn-over1quarter {min-height:125vh;}
+.hmn-130 {min-height: 130vh;}
+.hmn-133, .hmn-over1third {min-height:133.33vh;}
+.hmn-140 {min-height: 140vh;}
+.hmn-150, .hmn-overhalf {min-height:150vh;}
+.hmn-160 {min-height: 160vh;}
+.hmn-166, .hmn-over2third {min-height:166.66vh;}
+.hmn-170 {min-height: 170vh;}
+.hmn-175, .hmn-over3quarter {min-height:175vh;}
+.hmn-180 {min-height: 180vh;}
+.hmn-190, .hmn-over9tenth {min-height: 190vh;}
+.hmn-200, .hmn-full {min-height:200vh;}
+.hmx-110, .hmx-over1tenth {max-height:110vh;}
+.hmx-120 {max-height: 120vh;}
+.hmx-125, .hmx-over1quarter {max-height:125vh;}
+.hmx-130 {max-height: 130vh;}
+.hmx-133, .hmx-over1third {max-height:133.33vh;}
+.hmx-140 {max-height: 140vh;}
+.hmx-150, .hmx-overhalf {max-height:150vh;}
+.hmx-160 {max-height: 160vh;}
+.hmx-166, .hmx-over2third {max-height:166.66vh;}
+.hmx-170 {max-height: 170vh;}
+.hmx-175, .hmx-over3quarter {max-height:175vh;}
+.hmx-180 {max-height: 180vh;}
+.hmx-190, .hmx-over9tenth {max-height: 190vh;}
+.hmx-200, .hmx-overfull {max-height:200vh;}
+
+.ph-110, .ph-over1tenth {height:110vh;}
+.ph-120 {height: 120vh;}
+.ph-125, .ph-over1quarter {height:125vh;}
+.ph-130 {height: 130vh;}
+.ph-133, .ph-over1third {height:133.33vh;}
+.ph-140 {height: 140vh;}
+.ph-150, .ph-overhalf {height:150vh;}
+.ph-160 {height: 160vh;}
+.ph-166, .ph-over2third {height:166.66vh;}
+.ph-170 {height: 170vh;}
+.ph-175, .ph-over3quarter {height:175vh;}
+.ph-180 {height: 180vh;}
+.ph-190, .ph-over9tenth {height: 190vh;}
+.ph-200, .ph-overfull {height:200vh;}
+
+.ph-1 {height: 1%;}
+.ph-2 {height: 2%;}
+.ph-3 {height: 3%;}
+.ph-4 {height: 4%;}
+.ph-5 {height: 5%;}
+.ph-6 {height: 6%;}
+.ph-7 {height: 7%;}
+.ph-8 {height: 8%;}
+.ph-9 {height: 9%;}
+.ph-10, .ph-1tenth {height:10%;}
+.ph-20 {height: 20%;}
+.ph-25, .ph-1quarter {height:25%;}
+.ph-30 {height: 30%;}
+.ph-33, .ph-1third {height:33.33%;}
+.ph-40 {height: 40%;}
+.ph-50, .ph-half {height:50%;}
+.ph-60 {height: 60%;}
+.ph-66, .ph-2third {height:66.66%;}
+.ph-70 {height: 70%;}
+.ph-75, .ph-3quarter {height:75%;}
+.ph-80 {height: 80%;}
+.ph-90, .ph-9tenth {height: 90%;}
+.ph-100, .ph-full {height:100%;}
+.ph-auto {height: auto;}
+
+.phmn-10, .phmn-1tenth {min-height:10%;}
+.phmn-20 {min-height: 20%;}
+.phmn-25, .phmn-1quarter {min-height:25%;}
+.phmn-30 {min-height: 30%;}
+.phmn-33, .phmn-1third {min-height:33.33%;}
+.phmn-40 {min-height: 40%;}
+.phmn-50, .phmn-half {min-height:50%;}
+.phmn-60 {min-height: 60%;}
+.phmn-66, .phmn-2third {min-height:66.66%;}
+.phmn-70 {min-height: 70%;}
+.phmn-75, .phmn-3quarter {min-height:75%;}
+.phmn-80 {min-height: 80%;}
+.phmn-90, .phmn-9tenth {min-height: 90%;}
+.phmn-100, .phmn-full {min-height:100%;}
+.phmx-10, .phmx-tenth {min-height:10%;}
+.phmx-20 {min-height: 20%;}
+.phmx-25, .phmx-1quarter {min-height:25%;}
+.phmx-30 {min-height: 30%;}
+.phmx-33, .phmx-1third {min-height:33.33%;}
+.phmx-40 {min-height: 40%;}
+.phmx-50, .phmx-half {min-height:50%;}
+.phmx-60 {min-height: 60%;}
+.phmx-66, .phmx-2third {min-height:66.66%;}
+.phmx-70 {min-height: 70%;}
+.phmx-75, .phmx-3quarter {min-height:75%;}
+.phmx-80 {min-height: 80%;}
+.phmx-90, .phmx-9tenth {min-height: 90%;}
+.phmx-100, .phmx-full {min-height:100%;}
+
 
 .hw-full {
   width:100%;
@@ -823,6 +889,31 @@ animation-name: fade-in-right-wide;
 /* background images */
 .bgi-cover {background-size: cover;}
 .bgi-contain {background-size: contain;}
+.bgi-size-1 {background-size: 1%;}
+.bgi-size-2 {background-size: 2%;}
+.bgi-size-3 {background-size: 3%;}
+.bgi-size-4 {background-size: 4%;}
+.bgi-size-5 {background-size: 5%;}
+.bgi-size-6 {background-size: 6%;}
+.bgi-size-7 {background-size: 7%;}
+.bgi-size-8 {background-size: 8%;}
+.bgi-size-9 {background-size: 9%;}
+.bgi-size-10, .bgi-size-tenth {background-size:10%;}
+.bgi-size-20 {background-size: 20%;}
+.bgi-size-25, .bgi-size-1quarter {background-size:25%;}
+.bgi-size-30 {background-size: 30%;}
+.bgi-size-33, .bgi-size-1third {background-size:33.33%;}
+.bgi-size-40 {background-size: 40%;}
+.bgi-size-50, .bgi-size-half {background-size:50%;}
+.bgi-size-60 {background-size: 60%;}
+.bgi-size-66, .bgi-size-2third {background-size:66.66%;}
+.bgi-size-70 {background-size: 70%;}
+.bgi-size-75, .bgi-size-3quarter {background-size:75%;}
+.bgi-size-80 {background-size: 80%;}
+.bgi-size-90, .bgi-size-9tenth {background-size: 90%;}
+.bgi-size-100, .bgi-size-full {background-size:100%;}
+.bgi-size-auto {background-size: auto;}
+
 .bgi-centercover {
   background-position: center center;
   background-size: cover;
@@ -831,7 +922,7 @@ animation-name: fade-in-right-wide;
   background-position: center center;
   background-size: contain;
   }
-.bgi-repeatt-none {background-repeat: no-repeat;}
+.bgi-repeat-none {background-repeat: no-repeat;}
 .bgi-repeat-h {background-repeat: repeat-x;}
 .bgi-repeat-v {background-repeat: repeat-y;}
 
@@ -862,21 +953,22 @@ h4 {font-size:calc(var(--fontsize) + 4rem);}
 h5 {font-size:calc(var(--fontsize) + 3rem);}
 h6 {font-size:calc(var(--fontsize) + 2rem);}
 
-.font-2 {font-size:2rem;}
-.font-3 {font-size:3rem;}
-.font-4 {font-size:4rem;}
-.font-5 {font-size:5rem;}
-.font-6 {font-size:6rem;}
-.font-7 {font-size:7rem;}
-.font-8 {font-size:8rem;}
-.font-9 {font-size:9rem;}
-.font-10 {font-size:10rem;}
+.tx-fs-2 {font-size:2rem;}
+.tx-fs-3 {font-size:3rem;}
+.tx-fs-4 {font-size:4rem;}
+.tx-fs-5 {font-size:5rem;}
+.tx-fs-6 {font-size:6rem;}
+.tx-fs-7 {font-size:7rem;}
+.tx-fs-8 {font-size:8rem;}
+.tx-fs-9 {font-size:9rem;}
+.tx-fs-10 {font-size:10rem;}
 
 .tx-dec-none {text-decoration:none;}
 
 .tx-left {text-align: left;}
 .tx-center {text-align: center;}
 .tx-right {text-align: right;}
+.tx-justify {text-align: justify;}
 
 .tx-lw-small {max-width:clamp(33rem,45rem,80%);}
 .tx-lw-normal {max-width:clamp(45rem,66rem,80%);}
@@ -1073,19 +1165,20 @@ h6 {font-size:calc(var(--fontsize) + 2rem);}
 .flx-order-4 {order:4;}
 
 /* grid layout */
-.justify-even {justify-content:space-evenly;}
 .grid {display:grid;}
 .inline-grid {display:inline-grid;}
-.grid-2-column {grid-template-columns: auto auto;}
-.grid-3-column {grid-template-columns: auto auto auto;}
-.grid-4-column {grid-template-columns: auto auto auto auto;}
-.grid-5-column {grid-template-columns: auto auto auto auto auto;}
+.grid-2-column {grid-template-columns: repeat(2, 1fr);}
+.grid-3-column {grid-template-columns: repeat(3, 1fr);}
+.grid-4-column {grid-template-columns: repeat(4, 1fr);}
+.grid-5-column {grid-template-columns: repeat(5, 1fr);}
 
 .grid-row-auto {grid-auto-rows: 1fr;}
-.grid-row-25 {grid-auto-rows: 25vh;}
-.grid-row-50 {grid-auto-rows: 50vh;}
-.grid-row-75 {grid-template-rows: 75vh;}
-.grid-row-100 {grid-template-rows: 100vh;}
+.grid-row-25 {grid-auto-rows: min(25vh) 1fr;}
+.grid-row-33,.grid-row-third {grid-auto-rows: min(33.33vh) 1fr;}
+.grid-row-50 {grid-auto-rows: min(50vh) 1fr;}
+.grid-row-66,.grid-row-2third {grid-auto-rows: min(66.66vh) 1fr;}
+.grid-row-75 {grid-auto-rows: min(75vh) 1fr;}
+.grid-row-100 {grid-auto-rows: min(100vh) 1fr;}
 
 .gc-start-0 {grid-column-start: -1;}
 .gc-start-1 {grid-column-start: 1;}
@@ -1118,3 +1211,13 @@ h6 {font-size:calc(var(--fontsize) + 2rem);}
 .gr-end-4 {grid-row-end: 4;}
 .gr-end-5 {grid-row-end: 5;}
 .gr-end-5 {grid-row-end: 6;}
+
+.gr-self-start {justify-self:start;}
+.gr-self-center {justify-self:center;}
+.gr-self-end {justify-self:end;}
+.gr-self-stretch {justify-self:stretch;}
+
+.gc-self-start {align-self:start;}
+.gc-self-center {align-self:center;}
+.gc-self-end {align-self:end;}
+.gc-self-stretch {align-self:stretch;}
